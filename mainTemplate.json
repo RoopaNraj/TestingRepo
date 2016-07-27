@@ -1,4 +1,4 @@
-﻿{
+{
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
@@ -114,7 +114,7 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "StorageAccountName": { "value": "[parameters('storageAccountName')]" }
+          "storageAccountName": { "value": "[parameters('storageAccountName')]" }
         }
       }
     },
@@ -130,9 +130,9 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "vnetname": { "value": "[parameters('virtualNetworkName')]" },
-          "addressprefix": { "value": "[parameters('vnetAddressPrefix')]" },
-          "subnetprefix": { "value": "[parameters('subnetAddressPrefix')]" },
+          "virtualNetworkName": { "value": "[parameters('virtualNetworkName')]" },
+          "vnetAddressPrefix": { "value": "[parameters('vnetAddressPrefix')]" },
+          "subnetAddressPrefix": { "value": "[parameters('subnetAddressPrefix')]" },
           "subnetname": { "value": "[variables('subnetname')]" }
         }
       }
