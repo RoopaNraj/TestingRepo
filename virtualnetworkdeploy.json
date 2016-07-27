@@ -1,0 +1,64 @@
+﻿{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+  "parameters": {
+    "virtualNetworkName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 15,
+      "metadata": {
+        "description": "name of your virtual network."
+      }
+    },
+    "vnetAddressPrefix": {
+      "defaultValue": "10.0.0.0/16",
+      "type": "string",
+      "metadata": {
+        "description": "specify address prefix for your vNet, like 10.0.0.0/16"
+      }
+    },
+    "subnetName": {
+      "defaultValue": "subnet-1",
+      "type": "string",
+      "metadata": {
+        "description": "specify name of your virtual subnet."
+      }
+    },
+    "subnetAddressPrefix": {
+      "defaultValue": "10.0.0.0/24",
+      "type": "string",
+      "metadata": {
+        "description": "Specify address prefix for your subnet, like 10.0.0.0/24"
+      }
+    }
+  },
+    "variables": {
+    },
+  "resources": [
+    {
+      "comments": "Create Virtual Network.",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[parameters('virtualNetworkName')]",
+      "apiVersion": "2015-06-15",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[parameters('vnetAddressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[parameters('subnetName')]",
+            "properties": {
+              "addressPrefix": "[parameters('subnetAddressPrefix')]"
+            }
+          }
+        ]
+      },
+      "dependsOn": [ ]
+    }
+  ],
+    "outputs": {
+    }
+}

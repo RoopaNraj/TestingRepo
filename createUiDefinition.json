@@ -1,0 +1,74 @@
+{
+  "handler": "Microsoft.Compute.MultiVm",
+  "version": "0.0.1-preview",
+  "parameters": {
+    "basics": [
+      {
+  "name": "virtualNetworkName",
+  "type": "Microsoft.Common.TextBox",
+  "label": "VirtualNetworkName",
+  "defaultValue": "sharedvnet",
+  "toolTip": "name of your virtual network.",
+  "constraints": {},
+  "options": {},
+  "visible": true
+},
+{
+  "name": "storageAccountName",
+  "type": "Microsoft.Common.TextBox",
+  "label": "StorageAccountName",
+  "defaultValue": "sharedstorage",
+  "toolTip": "name of your storage.",
+  "constraints": {},
+  "options": {},
+  "visible": true
+},
+{
+  "name": "vmName",
+  "type": "Microsoft.Common.TextBox",
+  "label": "VmName",
+  "defaultValue": "adminVM",
+  "toolTip": "name of your VM.",
+  "constraints": {},
+  "options": {},
+  "visible": true
+},
+{
+  "name": "adminName",
+  "type": "Microsoft.Common.TextBox",
+  "label": "AdminName",
+  "defaultValue": "orchestrate",
+  "toolTip": "Admin name of the VM.",
+  "constraints": {},
+  "options": {},
+  "visible": true
+},
+{
+  "name": "password",
+  "type": "Microsoft.Common.PasswordBox",
+  "label": {
+    "password": "Password",
+    "confirmPassword": "Confirm password"
+  },
+  "toolTip": "Admin password of the vm.",
+  "constraints": {
+    "required": true,
+    "regex": "",
+    "validationMessage": ""
+  },
+  "options": {
+    "hideConfirmation": false
+  },
+  "visible": true
+}
+      ],
+    "steps": [],
+    "outputs": {
+      "virtualNetworkName": "[basics('virtualNetworkName')]",
+      "vmName": "[basics('vmName')]",
+      "password": "[basics('password')]",
+      "adminName": "[basics('adminName')]",
+      "storageAccountName": "[basics('storageAccountName')]"
+    }
+  }
+}
